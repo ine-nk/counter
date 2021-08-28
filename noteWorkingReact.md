@@ -51,14 +51,14 @@
 
 или условие можно записать через `if - else` или тернарный оператор: `условие ? res (если истина) : res1 ( если false)`
 
-```const renderTags =() => {
+`const renderTags =() => {
   if (tags.length === 0 ) return 'Тэгов не найдено'
   return tags.map((tag) => {
     <li key={tag} >{tag}</li>
   })
     }
 }
-```
+`
 
 # обработка событий
 
@@ -79,3 +79,33 @@
 
 #  Передача аргументов событий
 
+# при импорте компонентов - имена компонентов должны быть с большой буквы
+
+и при выводе компонентов 
+>`return(
+>   <div>
+>   {counters.map((counter)=>(
+>      <Counter key={counter.id} vulue={counter.value} />
+>   ))}
+>   </div>
+>)`
+
+# передача начальных значений через дополнительный атрибутов
+
+через  value={counter.value}
+` <Counter key={counter.id} value={counter.value} />`
+для передачи этих атрибутов в сам компонент Counter надо в его модуле в 
+`const Counter = (props)=>{}`
+свойства `props` будут содержать в себе все переданные к Counter  свойства и использовать их для инициализации 
+- устанавливаем начальное значение в  `useState(props.value)`
+
+
+# Debug React
+
+> React Developer Tools - расширение для Chrome
+
+> components
+
+- кликаем по компоненту 
+- в окне консоли набираем $r и будет находиться в выбраном компоненте
+ 
